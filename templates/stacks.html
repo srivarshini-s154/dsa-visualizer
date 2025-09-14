@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block title %}Stack Visualization - Data Structures Visualizer{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/stacks.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="stack-container">
+    <div class="stack-header">
+        <h1>Stack Data Structure</h1>
+        <div class="stack-description">
+            <p>A stack is a linear data structure that follows the Last-In-First-Out (LIFO) principle. This means that the last element added to the stack will be the first one to be removed.</p>
+            <p>In computer science, stacks are used in various applications including expression evaluation, syntax parsing, backtracking algorithms, and function call management. Our visualization demonstrates how basic stack operations work and how they can be applied to evaluate arithmetic expressions.</p>
+        </div>
+    </div>
+    
+    <div class="main-content">
+        <!-- Left column for operation history -->
+        <div class="left-column">
+            <div class="operation-history">
+                <h3>Operation History</h3>
+                <div id="history-list"></div>
+            </div>
+        </div>
+        
+        <!--middle coloumn-->
+        <div class="middle-column">
+            <div class="visualization-section">
+                <h2>Stack Visualization</h2>
+                <div class="stack-visualization">
+                    <div class="stack-container-graphic">
+                        <div class="stack-base"></div>
+                        <div id="stack-elements"></div>
+                    </div>
+                </div>
+                <div class="stack-info">
+                    <div class="info-box">
+                        <h3>Stack Information</h3>
+                        <p>Size: <span id="stack-size">0</span></p>
+                        <p>Capacity: <span id="stack-capacity">10</span></p>
+                        <p>Top Element: <span id="top-element">None</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Right column for operations -->
+        <div class="right-column">
+            <div class="controls-section">
+                <div class="operation-controls">
+                    <h3>Stack Operations</h3>
+                    
+                    <div class="push-operation">
+                        <h4>Push Operation</h4>
+                        <div class="input-group">
+                            <input type="number" id="element-value" placeholder="Enter value" min="1" max="999">
+                            <button id="push-btn" class="btn-operation push">Push</button>
+                        </div>
+                    </div>
+                    
+                    <div class="other-operations">
+                        <h4>Other Operations</h4>
+                        <div class="secondary-operations">
+                            <button id="pop-btn" class="btn-operation pop">Pop</button>
+                            <button id="peek-btn" class="btn-operation secondary">Peek</button>
+                            <button id="clear-btn" class="btn-operation secondary">Clear Stack</button>
+                            <button id="size-btn" class="btn-operation secondary">Get Size</button>
+                            <button id="isEmpty-btn" class="btn-operation secondary">Is Empty?</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="application-section">
+                    <h3>Stack Application: Expression Evaluation</h3>
+                    <div class="expression-evaluator">
+                        <input type="text" id="expression-input" placeholder="Enter expression:">
+                        <button id="evaluate-btn" class="btn-operation application">Evaluate</button>
+                    </div>
+                    <div class="evaluation-steps">
+                        <h4>Evaluation Steps:</h4>
+                        <div id="steps-container"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/stacks.js') }}"></script>
+{% endblock %}

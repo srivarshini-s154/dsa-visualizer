@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Data Structures Visualizer{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/homepage.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <h1>Data Structures Visualizer</h1>
+    <p>Understand data structures through interactive visualizations</p>
+</div>
+
+<div class="data-structures-grid">
+    <div class="ds-card" onclick="location.href='/stacks'">
+        <div class="ds-icon">📚</div>
+        <h2>Stacks</h2>
+        <p>LIFO (Last In First Out) structure with push and pop operations</p>
+        <button class="btn-primary">Explore Stacks</button>
+    </div>
+    
+    <div class="ds-card" onclick="location.href='/queues'">
+        <div class="ds-icon">📊</div>
+        <h2>Queues</h2>
+        <p>FIFO (First In First Out) structure with enqueue and dequeue operations</p>
+        <button class="btn-primary">Explore Queues</button>
+    </div>
+    
+    <div class="ds-card">
+        <div class="ds-icon">🔗</div>
+        <h2>Linked Lists</h2>
+        <p>Linear data structure with nodes connected through pointers</p>
+        <button class="btn-secondary">Coming Soon</button>
+    </div>
+    
+    <div class="ds-card">
+        <div class="ds-icon">🕸️</div>
+        <h2>Graphs</h2>
+        <p>Non-linear data structure with nodes and edges</p>
+        <button class="btn-secondary">Coming Soon</button>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/homepage.js') }}"></script>
+{% endblock %}
